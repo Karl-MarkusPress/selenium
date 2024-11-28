@@ -10,7 +10,6 @@ describe("selenium", function () {
         const btn = await driver.findElement(By.id('badButton'));
         await btn.click();
 
-        await driver.sleep(5000);
         await driver.quit();
 
         assert.isNotNull(btn, "Bad button is null");
@@ -23,7 +22,6 @@ describe("selenium", function () {
         const btn = await driver.findElement(By.id("greenButton"));
         await btn.click();
 
-        await driver.sleep(5000);
         await driver.quit();
         assert.isNotNull(btn, "Green button is null");
 
@@ -43,7 +41,6 @@ describe("selenium", function () {
         await inputField.click();
         await inputField.sendKeys("Hello World!");
         assert.equal(await inputField.getAttribute('value'), 'Hello World!', 'Input field has wrong text')
-        await driver.sleep(5000);
         await driver.quit();
 
     })
@@ -66,7 +63,6 @@ describe("selenium", function () {
         var alert = await driver.switchTo().alert();
         await alert.sendKeys("hello");
         await alert.accept();
-        await driver.sleep(5000);
         await driver.quit();
 
     })
@@ -87,7 +83,6 @@ describe("selenium", function () {
         const statusText = await statusLabel.getText();
         assert.equal(statusText.includes('Animating'), false, 'Fuck you moving targeet doesnt have spin class after click');
 
-        await driver.sleep(5000);
         await driver.quit();
 
     })
@@ -105,9 +100,16 @@ describe("selenium", function () {
         var buttonText = await button.getText();
         assert.equal(buttonText, 'Hello World', 'Button text is not "Hello World"');
 
-        await driver.sleep(5000);
         await driver.quit();
 
+    })
+    it("Works with KeyStore", async function () {
+        const driver = await createSelenium();
+        await driver.get("http://localhost:5173")
+        var title = await driver.getTitle()
+        assert.isTrue(title.includes("KeyStore"))
+        await driver.sleep(5000);
+        await driver.quit();
     })
 });
 

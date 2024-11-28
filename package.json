@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha tests/**/*.test.js"
+    "test": "mocha tests/**/*.test.js --timeout 0 --parallel --jobs 6"
   },
   "dependencies": {
     "@types/selenium-webdriver": "^4.1.27",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
-    "@types/chai": "^5.0.0",
+    "@types/chai": "^5.0.1",
     "@types/mocha": "^10.0.9",
     "@vitejs/plugin-react": "^4.3.3",
     "@vitejs/plugin-react-swc": "^3.5.0",

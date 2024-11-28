@@ -4,7 +4,7 @@ import testConfig from './selenium.config.js';
 
 /**
  * 
- * @returns {WebDriver}
+ * @returns {WebDriver} 
  */
 export async function createSelenium() {
     let options = new Options();
